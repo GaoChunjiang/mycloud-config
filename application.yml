@@ -12,3 +12,4 @@ spring:
   profiles: test   #测试环境
   application:
     name: mycloud-config-gcj-test
+# 请保存为 UTF-8 格式
