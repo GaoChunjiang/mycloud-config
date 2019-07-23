@@ -6,10 +6,10 @@ spring:
 spring:
   profiles: dev   #开发环境
   application:
-    name: mycloud-config-gcj-dev
+    name: mycloud-config-gcj-dev-001
 ---
 spring:
   profiles: test   #测试环境
   application:
-    name: mycloud-config-gcj-test
+    name: mycloud-config-gcj-test-001
 # 请保存为 UTF-8 格式
