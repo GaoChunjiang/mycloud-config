@@ -1,0 +1,83 @@
+spring:
+  profiles:
+    active:
+      - dev
+---
+server:
+  port: 8001
+
+spring:
+  profiles: dev
+  application:
+    name: mycloud-config-dept-client
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/mycloud01
+    username: root
+    password: admin
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 100
+      max-wait-millis: 200
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.gcj.mycloud.entities
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: dept-8001.com  # 微服务实例名称
+    prefer-ip-address: true  # 实例名称的链接是否显示IP
+
+info:  # 关于信息完善
+  app.name: gcj-mycloud
+  company.name: www.gcj.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+---
+server:
+  port: 8001
+
+spring:
+  profiles: test
+  application:
+    name: mycloud-config-dept-client
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/mycloud02
+    username: root
+    password: admin
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 100
+      max-wait-millis: 200
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.gcj.mycloud.entities
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: dept-8001.com  # 微服务实例名称
+    prefer-ip-address: true  # 实例名称的链接是否显示IP
+
+info:  # 关于信息完善
+  app.name: gcj-mycloud
+  company.name: www.gcj.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
